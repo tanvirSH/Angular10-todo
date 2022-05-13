@@ -1,0 +1,11 @@
+<app-todo-add (addTodo)="addTodo($event)"></app-todo-add>
+<h4 class="mt-4">Your todo list</h4>
+<div *ngIf="todos.length; else elseBlock">
+    <div *ngFor="let todo of todos; index as idx">
+        <app-todo-item [todo]="todo" [idx]="idx" (deleteTodo)="deleteThisTodo(todo)" (toggleTodo)="toggleTodo(todo)"></app-todo-item>
+        <!-- <li>{{todo.sno}} - {{todo.title}} - {{todo.description}} - {{todo.active}}</li> -->
+    </div>
+</div>
+<ng-template #elseBlock>No Todo added</ng-template>
+
+
